@@ -1,6 +1,6 @@
 ### About
 
-Several use cases scenarios using RabbitMQ with Groovy.
+Several scenarios using RabbitMQ with Groovy.
 
 ### Demo
 
