@@ -1,0 +1,7 @@
+1326724141
+Dummy	/home/pablo/workspace/pocs/rabbitmq/1_direct_exchange/consumer.groovy	class Dummy
+Dummy	/home/pablo/workspace/pocs/rabbitmq/1_direct_exchange/producer.groovy	class Dummy
+Dummy	/home/pablo/workspace/pocs/rabbitmq/2_custom_exchange/consumer.groovy	class Dummy
+Dummy	/home/pablo/workspace/pocs/rabbitmq/2_custom_exchange/producer.groovy	class Dummy
+Dummy	/home/pablo/workspace/pocs/rabbitmq/3_work_queues/producer.groovy	class Dummy
+Dummy	/home/pablo/workspace/pocs/rabbitmq/3_work_queues/worker.groovy	class Dummy
