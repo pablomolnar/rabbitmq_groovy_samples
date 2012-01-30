@@ -14,6 +14,8 @@ def connectionFactory = new ConnectionFactory([username: config.username, passwo
 def connection = connectionFactory.newConnection(Address.parseAddresses(config.addresses))
 def channel = connection.createChannel()
 
+println "Connected to $connection.address"
+
 // Declare entry poing exchange
 channel.exchangeDeclare('all_numbers', "fanout", true) // Durable exchange
 
@@ -31,8 +33,9 @@ channel.queueBind('evenQueue', 'amq.headers', '', ['even': 'true', 'x-match': 'a
 100.times {
   def headers = [even: (it % 2 == 0) as String]
   def properties = new AMQP.BasicProperties.Builder().headers(headers).deliveryMode(2).build() // Delivery mode 2: persistent
+  def msg = "Message $it with headers $headers"
 	channel.basicPublish('all_numbers', '', properties, "Message $it with headers $headers".getBytes())
-  Thread.sleep(100)
+  println msg
 }
 
 // Close
