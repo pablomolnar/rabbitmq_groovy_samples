@@ -6,9 +6,12 @@ class Dummy {}
 
 try{
 
+// Get rabbitmq config
+def config = new ConfigSlurper().parse(new File('../rabbitmq.properties').toURL())
+
 // Connect
-def connectionFactory = new ConnectionFactory([username: 'guest', password: 'guest', virtualHost: '/'])
-def connection = connectionFactory.newConnection(['127.0.0.1', 5672] as Address)
+def connectionFactory = new ConnectionFactory([username: config.username, password: config.password, virtualHost: config.virtualHost])
+def connection = connectionFactory.newConnection(Address.parseAddresses(config.addresses))
 def channel = connection.createChannel()
 
 
